@@ -47,3 +47,25 @@ pioneer/
 - `bun run build`: Build all applications
 - `bun run dev:web`: Start only the web application
 - `bun run check-types`: Check TypeScript types across all apps
+
+## SEO & Favicon (local changes)
+
+ - Default language is now set to `pt-BR` in `apps/web/src/app.html`.
+ - Default site title and meta description are provided in `app.html` and the home page (`apps/web/src/routes/+page.svelte`).
+ - SVG favicon added at `apps/web/static/favicon.svg` and a social preview image at `apps/web/static/og-image.svg`.
+ - Accessibility: a "Pular para o conteúdo" skip-link was added in `apps/web/src/routes/+layout.svelte` and helper styles are in `apps/web/src/app.css`.
+
+How to test:
+
+1. Run the dev server: 
+
+```powershell
+bun run dev:web
+```
+
+2. Open the site and verify:
+ - Title shows `Pioneer — Recarregue seu serviço`.
+ - The favicon (SVG) appears in the browser tab.
+ - Social preview uses `og-image.svg` (social preview tools may take a while to refresh).
+
+To change title/description for a specific page, edit the `<svelte:head>` block in that page's `.svelte` file.

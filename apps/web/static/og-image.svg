@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0ea5a0" />
+      <stop offset="1" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)" />
+  <text x="50%" y="45%" text-anchor="middle" fill="#fff" font-family="Poppins, sans-serif" font-size="56" font-weight="700">Pioneer</text>
+  <text x="50%" y="62%" text-anchor="middle" fill="#ffffffcc" font-family="Poppins, sans-serif" font-size="28">Recomendações selecionadas para o serviço</text>
+</svg>
