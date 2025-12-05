@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	// Data is provided by the server `+page.server.ts` load function so page is SSR
-	export let data: { items: { title: string; url: string; image: string }[] };
+	export let data: { items: { title: string; url: string; image: string }[]; siteUrl: string };
 
 	const items = data.items ?? [];
 	
@@ -175,9 +175,11 @@
 	<meta name="description" content="Recomendações selecionadas para renovar sua energia no serviço — curadoria de links úteis." />
 	<meta property="og:title" content="Pioneer — Recarregue seu serviço" />
 	<meta property="og:description" content="Recomendações selecionadas para renovar sua energia no serviço — curadoria de links úteis." />
-	<meta property="og:image" content="%sveltekit.assets%/og-image.svg" />
+	<meta property="og:image" content={`${data.siteUrl}/og-image.svg`} />
+	<meta property="og:url" content={data.siteUrl} />
 	<meta property="og:locale" content="pt_BR" />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content={`${data.siteUrl}/og-image.svg`} />
 </svelte:head>
 
 <main class="min-h-screen py-10 px-4 flex items-start justify-center">

@@ -1,7 +1,7 @@
 import type { RequestEvent } from '@sveltejs/kit';
 
 // Server-side load: fetch OG metadata for each link so page is fully SSR
-export async function load({ fetch }: RequestEvent) {
+export async function load({ fetch, url }: RequestEvent) {
   const links = [
     // add explicit `image` fields; when `image` is present we'll use it directly.
     { title: 'Faça ajustes “pela causa das boas novas”', url: "https://www.jw.org/finder?srcid=jwlshare&wtlocale=T&lank=pub-jwb_201805_8_VIDEO", image: 'https://media.discordapp.net/attachments/1445230985427025930/1446220109193679009/Untitled.jpg?ex=693330ef&is=6931df6f&hm=e60649cf9fac22f9704e606c34a3d3e07ea570a9599e354ea9ba7a108742f26e&=&format=webp' },
@@ -34,5 +34,8 @@ export async function load({ fetch }: RequestEvent) {
       image: link.image ?? '', // empty string means needs to be fetched client-side
     }));
 
-  return { items };
+  // The origin (protocol + host) is needed to build absolute OG URLs for bots
+  const siteUrl = url.origin;
+
+  return { items, siteUrl };
 }
