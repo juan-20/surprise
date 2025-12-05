@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 @import 'tailwindcss';
 
+@font-face {
+  font-family: "More Sugar";
+  src: local("More Sugar");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Horizon";
+  src: local("Horizon");
+  font-display: swap;
+}
+
 :root {
-  --background: oklch(0.9809 0.0025 228.7836);
-  --foreground: oklch(0.3211 0 0);
+  --background: #9159c7;
+  --foreground: #ffffff;
   --card: oklch(1.0000 0 0);
   --card-foreground: oklch(0.3211 0 0);
   --popover: oklch(1.0000 0 0);
@@ -26,15 +38,16 @@
   --chart-3: oklch(0.9680 0.2110 109.7692);
   --chart-4: oklch(0.8027 0.1355 349.2347);
   --chart-5: oklch(0.7395 0.2268 142.8504);
-  --sidebar: oklch(0.9809 0.0025 228.7836);
-  --sidebar-foreground: oklch(0.3211 0 0);
+  --sidebar: #9159c7;
+  --sidebar-foreground: #ffffff;
   --sidebar-primary: oklch(0.8677 0.0735 7.0855);
   --sidebar-primary-foreground: oklch(0 0 0);
   --sidebar-accent: oklch(0.9680 0.2110 109.7692);
   --sidebar-accent-foreground: oklch(0 0 0);
   --sidebar-border: oklch(0.8699 0 0);
   --sidebar-ring: oklch(0.8677 0.0735 7.0855);
-  --font-sans: Poppins, sans-serif;
+  --font-sans: "Horizon", Poppins, sans-serif;
+  --font-heading: "More Sugar", var(--font-sans);
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: Roboto Mono, monospace;
   --radius: 0.5rem;
@@ -165,11 +178,196 @@
 /* Global page defaults to use theme variables */
 html, body {
   height: 100%;
-  background: oklch(0.2303 0.0125 264.2926);
-  color: var(--color-foreground);
+  background: #9159c7;
+  color: #ffffff;
+  text-decoration-color: #00167a;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-heading);
+}
+
+.page-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 25%, rgba(255, 224, 138, 0.16), transparent 36%),
+    radial-gradient(circle at 78% 18%, rgba(90, 240, 255, 0.18), transparent 38%),
+    linear-gradient(180deg, #7a45c0 0%, #5a2f9b 55%, #1d1b4a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-shell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 22, 122, 0.22), rgba(255, 255, 255, 0.04));
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.content-shell {
+  position: relative;
+  z-index: 1;
+  background: rgba(22, 16, 58, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #ffd166, #5af0ff);
+  color: #0b0a23;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 40px rgba(255, 209, 102, 0.35);
+}
+
+.hero-sub {
+  color: rgba(240, 240, 255, 0.92);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+.hero-highlight {
+  color: #0b0a23;
+  background: linear-gradient(90deg, #ffd166, #5af0ff);
+  padding: 0 8px;
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgba(255, 209, 102, 0.26);
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.meta-badge {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(90, 240, 255, 0.18);
+  color: #e8f8ff;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 30px rgba(90, 240, 255, 0.28);
+}
+
+.heading-effect {
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 12px rgba(0, 22, 122, 0.5), 0 6px 20px rgba(0, 22, 122, 0.4);
+}
+
+.heading-effect::after {
+  content: '';
+  position: absolute;
+  inset: -8px -12px;
+  background: #00167a;
+  filter: blur(14px);
+  opacity: 0.5;
+  z-index: -1;
+  border-radius: 14px;
+}
+
+.heading-shadow {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-shadow::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  color: #00167a;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  border-radius: 16px;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.12), rgba(90, 240, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  color: #f8fbff;
+  backdrop-filter: blur(8px);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.32);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-image {
+  position: relative;
+  background: rgba(0, 22, 122, 0.16);
+}
+
+.card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 22, 122, 0.25));
+  pointer-events: none;
+}
+
+.card-body {
+  padding: 14px 16px 16px;
+  color: #f8fbff;
+}
+
+
+.card-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #fdfdff;
+  margin-bottom: 6px;
+}
+
+.card-url {
+  font-size: 0.85rem;
+  color: rgba(232, 244, 255, 0.8);
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #ffd166, #5af0ff);
+  color: #0b0a23;
+  font-size: 0.8rem;
+  margin: 12px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 28px rgba(255, 209, 102, 0.28);
+}
+
+a {
+  color: inherit;
+  text-decoration-color: #00167a;
 }
 
 /* Ensure code/inline font uses mono variable */

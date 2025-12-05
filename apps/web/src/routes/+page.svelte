@@ -183,8 +183,8 @@
 <main class="min-h-screen py-10 px-4 flex items-start justify-center">
 	<section class="w-full max-w-4xl rounded-lg shadow-md p-6">
 		<header class="mb-6 text-center">
-			<h1 class="text-3xl md:text-4xl font-extrabold mb-2 leading-tight" style="color: var(--color-primary);">Precisando de uma recarga para o melhor serviço do mundo?</h1>
-			<p class="text-lg md:text-xl" style="color: var(--color-secondary);">Aqui vão algumas recomendações selecionadas — abra qualquer cartão para visitar o site.</p>
+			<h1 class="text-3xl md:text-4xl font-extrabold mb-2 leading-tight" style="color: #fff; text-decoration-color: #00167a;">Precisando de uma recarga para o melhor serviço do mundo?</h1>
+			<p class="text-lg md:text-xl" style="color: #fff; text-decoration-color: #00167a;">Aqui vão algumas recomendações selecionadas — abra qualquer cartão para visitar o site.</p>
 		</header>
 
 		<ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
